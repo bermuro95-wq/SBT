@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Reports - SELAM BERTU TESFA</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link href="style.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+    <link href="ux-polish.css" rel="stylesheet">
+    <link rel="stylesheet" href="ux-v2.css">
+    <link href="ux-fast.css" rel="stylesheet">
+    <link href="ux-smooth.css" rel="stylesheet">
+    <link href="responsive.css" rel="stylesheet">
+    <link href="responsive-all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="SBT" class="sidebar-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><text y=%2230%22 font-size=%2220%22>SBT</text></svg>'">
+                <h5 class="sidebar-title">SELAM BERTU TESFA</h5>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html"><i class="bi bi-grid"></i> <span data-i18n="dashboard">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="income.html"><i class="bi bi-arrow-down-circle"></i> <span data-i18n="income">Income</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="expenses.html"><i class="bi bi-arrow-up-circle"></i> <span data-i18n="expenses">Expenses</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="transaction.html"><i class="bi bi-list-ul"></i> <span data-i18n="transactions">Transactions</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="budget.html"><i class="bi bi-pie-chart"></i> <span data-i18n="budget">Budget</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="receipts.html"><i class="bi bi-journal-check"></i> <span data-i18n="audit_evidence">Audit Evidence</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a href="reports.html"><i class="bi bi-file-earmark-text"></i> <span data-i18n="reports">Reports</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html"><i class="bi bi-graph-up"></i> <span data-i18n="analytics">Analytics</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="approvals.html"><i class="bi bi-check2-circle"></i> <span data-i18n="approvals">Approvals</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item admin-only d-none">
+                    <a href="users.html"><i class="bi bi-people"></i> <span data-i18n="users">Users</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="audit-logs.html"><i class="bi bi-clipboard-data"></i> <span data-i18n="audit_logs">Audit Logs</span></a>
+                </li>
+                <li class="nav-item super-admin-only d-none">
+                    <a href="settings.html"><i class="bi bi-gear"></i> <span data-i18n="settings">Settings</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="UserProfile.html"><i class="bi bi-person"></i> <span data-i18n="profile">Profile</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="logout-btn"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Logout</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Nav -->
+            <header class="top-nav">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link sidebar-toggle" id="sidebar-toggle">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                        <span class="top-nav-title" data-i18n="reports">Report Center</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <button type="button" class="btn btn-link position-relative notification-btn" id="notifications-btn" title="Messages">
+                            <i class="bi bi-chat-dots-fill fs-5 text-primary"></i>
+                            <span class="notification-count-badge d-none" id="notification-badge">0</span>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-translate"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item lang-option" data-lang="en">English</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="am">አማርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="ti">ትግርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="om">Afaan Oromo</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-link" id="theme-toggle">
+                            <i class="bi bi-moon-fill" id="theme-icon"></i>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="assets/images/logo.png" alt="User" class="avatar-sm" id="user-avatar">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><span class="dropdown-item-text" id="user-name">Loading...</span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="UserProfile.html"><i class="bi bi-person"></i> Profile</a></li>
+                                <li><a class="dropdown-item text-danger" id="logout-dropdown" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Report Types -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="annual">
+                            <div class="card-body text-center">
+                                <i class="bi bi-calendar3 fs-1 text-primary"></i>
+                                <h6 class="mt-2">Annual Financial Report</h6>
+                                <small class="text-muted">Full year summary</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="monthly">
+                            <div class="card-body text-center">
+                                <i class="bi bi-calendar-month fs-1 text-success"></i>
+                                <h6 class="mt-2">Monthly Financial Report</h6>
+                                <small class="text-muted">Month-by-month breakdown</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="income">
+                            <div class="card-body text-center">
+                                <i class="bi bi-arrow-down-circle fs-1 text-success"></i>
+                                <h6 class="mt-2">Income Report</h6>
+                                <small class="text-muted">All income transactions</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="expense">
+                            <div class="card-body text-center">
+                                <i class="bi bi-arrow-up-circle fs-1 text-danger"></i>
+                                <h6 class="mt-2">Expense Report</h6>
+                                <small class="text-muted">All expense transactions</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="budget">
+                            <div class="card-body text-center">
+                                <i class="bi bi-pie-chart fs-1 text-warning"></i>
+                                <h6 class="mt-2">Budget Report</h6>
+                                <small class="text-muted">Budget vs actual</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="category">
+                            <div class="card-body text-center">
+                                <i class="bi bi-tags fs-1 text-info"></i>
+                                <h6 class="mt-2">Category Report</h6>
+                                <small class="text-muted">By expense category</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="activity">
+                            <div class="card-body text-center">
+                                <i class="bi bi-clock-history fs-1 text-purple"></i>
+                                <h6 class="mt-2">Activity Report</h6>
+                                <small class="text-muted">Accountant activity</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="audit">
+                            <div class="card-body text-center">
+                                <i class="bi bi-clipboard-data fs-1 text-secondary"></i>
+                                <h6 class="mt-2">Audit Report</h6>
+                                <small class="text-muted">Audit trail summary</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="audit_compliance">
+                            <div class="card-body text-center">
+                                <i class="bi bi-shield-lock fs-1 text-primary"></i>
+                                <h6 class="mt-2">Audit Compliance</h6>
+                                <small class="text-muted">Score &amp; success rate</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="risk_anomaly">
+                            <div class="card-body text-center">
+                                <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
+                                <h6 class="mt-2">Risk &amp; Anomaly</h6>
+                                <small class="text-muted">Large txs &amp; pending age</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card report-card cursor-pointer" data-report="integrity">
+                            <div class="card-body text-center">
+                                <i class="bi bi-clipboard-check fs-1 text-success"></i>
+                                <h6 class="mt-2">Financial Integrity</h6>
+                                <small class="text-muted">Balance proof</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <!-- Report Parameters -->
+                <div class="card" id="report-params">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Generate Report</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Report Type</label>
+                                <select class="form-select" id="report-type-select">
+                                    <option value="annual">Annual Financial Report</option>
+                                    <option value="monthly">Monthly Financial Report</option>
+                                    <option value="income">Income Report</option>
+                                    <option value="expense">Expense Report</option>
+                                    <option value="budget">Budget Report</option>
+                                    <option value="category">Category Report</option>
+                                    <option value="activity">Activity Report</option>
+                                    <option value="audit">Audit Report</option>
+                                    <option value="audit_compliance">Audit Compliance</option>
+                                    <option value="risk_anomaly">Risk &amp; Anomaly</option>
+                                    <option value="integrity">Financial Integrity</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Date range</label>
+                                <div class="d-flex align-items-center gap-1 flex-wrap">
+                                    <label class="small text-muted mb-0">From</label>
+                                    <input type="date" class="form-control form-control-sm" id="report-date-from" style="width:auto;">
+                                    <label class="small text-muted mb-0">To</label>
+                                    <input type="date" class="form-control form-control-sm" id="report-date-to" style="width:auto;">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Month (for monthly reports)</label>
+                                <select class="form-select" id="report-month">
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end gap-2">
+                                <button class="btn btn-primary w-100" id="generate-report-btn">
+                                    <i class="bi bi-file-earmark-text"></i> Generate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Report Output -->
+                <div class="card mt-4 d-none" id="report-output">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0" id="report-title">Report</h5>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-sm btn-success" id="export-pdf-btn">
+                                <i class="bi bi-file-earmark-pdf"></i> PDF
+                            </button>
+                            <button class="btn btn-sm btn-success" id="export-excel-btn">
+                                <i class="bi bi-file-earmark-excel"></i> Excel
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" id="close-report-btn">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" id="report-content">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel d-none" id="notification-panel">
+        <div class="notification-header">
+            <h6>Notifications</h6>
+            <button class="btn btn-sm btn-link" id="mark-all-read">Mark all read</button>
+        </div>
+        <div class="notification-list" id="notification-list">
+            <div class="text-center text-muted p-3">No notifications</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="i18n.js"></script>
+    <script src="auth.js"></script>
+    <script src="permissions.js"></script>
+    <script src="utils.js"></script>
+    <script src="notifications.js"></script>
+    <!-- Professional export libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+    <script src="reports.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

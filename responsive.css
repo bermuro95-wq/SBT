@@ -1,0 +1,1173 @@
+/* ============================================================
+   SELAM BERTU TESFA - Responsive Design
+   Version: 1.0.0
+   ============================================================ */
+
+/* ============================================================
+   LARGE SCREENS (1200px and up)
+   ============================================================ */
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        padding: 0 2rem;
+    }
+    
+    .page-content {
+        padding: 32px;
+    }
+}
+
+/* ============================================================
+   MEDIUM SCREENS (992px to 1199px)
+   ============================================================ */
+
+@media (max-width: 1199px) {
+    .kpi-value {
+        font-size: 1.3rem;
+    }
+    
+    .kpi-card {
+        padding: 16px 20px;
+    }
+    
+    .page-content {
+        padding: 20px;
+    }
+}
+
+/* ============================================================
+   TABLETS / SMALL LAPTOPS (768px to 991px)
+   ============================================================ */
+
+@media (max-width: 991px) {
+    /* Sidebar becomes slide-out */
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+        transition: transform var(--transition-speed) ease;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .sidebar-toggle {
+        display: block !important;
+    }
+    
+    .sidebar-overlay.show {
+        display: block;
+    }
+    
+    /* Top nav adjustments */
+    .top-nav-title {
+        font-size: 1rem;
+    }
+    
+    /* Cards */
+    .kpi-card {
+        padding: 14px 16px;
+    }
+    
+    .kpi-value {
+        font-size: 1.1rem;
+    }
+    
+    .kpi-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+    
+    /* Tables - make scrollable */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Dashboard charts */
+    .chart-container {
+        height: 220px;
+    }
+    
+    /* Reports */
+    .report-card .fs-1 {
+        font-size: 2rem !important;
+    }
+    
+    /* Notifications */
+    .notification-panel {
+        width: calc(100% - 40px);
+        right: 20px;
+        max-height: 350px;
+    }
+}
+
+/* ============================================================
+   MOBILE (576px to 767px)
+   ============================================================ */
+
+@media (max-width: 767px) {
+    /* Auth pages */
+    .auth-card {
+        padding: 24px;
+        margin: 10px;
+    }
+    
+    .auth-title {
+        font-size: 1.2rem;
+    }
+    
+    .auth-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Layout */
+    .page-content {
+        padding: 12px;
+    }
+    
+    .top-nav {
+        padding: 0 12px;
+        height: 50px;
+    }
+    
+    .top-nav-title {
+        font-size: 0.9rem;
+        margin-left: 6px;
+    }
+    
+    .sidebar-toggle {
+        font-size: 1.2rem !important;
+    }
+    
+    /* KPI Cards - stack vertically */
+    .kpi-card {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+    
+    .kpi-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .kpi-value {
+        font-size: 0.95rem;
+    }
+    
+    .kpi-label {
+        font-size: 0.7rem;
+    }
+    
+    /* Card adjustments */
+    .card-body {
+        padding: 12px;
+    }
+    
+    .card-header {
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+    }
+    
+    /* Table adjustments */
+    .table td, 
+    .table th {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .table .badge {
+        font-size: 0.65rem;
+    }
+    
+    /* Modals */
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .modal-body {
+        padding: 14px;
+    }
+    
+    .modal-header {
+        padding: 12px 16px;
+    }
+    
+    .modal-footer {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+    }
+    
+    .modal-footer .btn {
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    /* Forms */
+    .form-control, 
+    .form-select {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .form-label {
+        font-size: 0.8rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    
+    .btn-sm {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+    }
+    
+    /* Charts */
+    .chart-container {
+        height: 180px;
+    }
+    
+    .chart-container-sm {
+        height: 160px;
+    }
+    
+    /* Notifications */
+    .notification-panel {
+        width: calc(100% - 20px);
+        right: 10px;
+        top: 55px;
+        max-height: 280px;
+    }
+    
+    .notification-item {
+        padding: 10px 14px;
+    }
+    
+    .notification-item .notification-title {
+        font-size: 0.8rem;
+    }
+    
+    .notification-item .notification-message {
+        font-size: 0.75rem;
+    }
+    
+    /* Pagination */
+    .pagination .page-link {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+    
+    /* Reports */
+    .report-card .card-body {
+        padding: 16px 12px;
+    }
+    
+    .report-card .fs-1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .report-card h6 {
+        font-size: 0.8rem;
+    }
+    
+    /* Toolbar */
+    .d-flex.gap-2 {
+        gap: 0.5rem !important;
+    }
+    
+    .input-group-sm .form-control {
+        font-size: 0.75rem;
+    }
+    
+    /* Avatar */
+    .avatar-sm {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Hide some table columns on mobile */
+    .table .hide-mobile {
+        display: none;
+    }
+}
+
+/* ============================================================
+   SMALL MOBILE (< 576px)
+   ============================================================ */
+
+@media (max-width: 575px) {
+    /* Auth */
+    .auth-card {
+        padding: 16px;
+        margin: 5px;
+        border-radius: 12px;
+    }
+    
+    .auth-title {
+        font-size: 1rem;
+    }
+    
+    .auth-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    /* Layout */
+    .page-content {
+        padding: 8px;
+    }
+    
+    .top-nav {
+        height: 46px;
+        padding: 0 8px;
+    }
+    
+    .top-nav-title {
+        font-size: 0.8rem;
+    }
+    
+    /* KPI Cards */
+    .kpi-card {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    
+    .kpi-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+    
+    .kpi-value {
+        font-size: 0.85rem;
+    }
+    
+    .kpi-label {
+        font-size: 0.65rem;
+    }
+    
+    /* Tables - very compact */
+    .table td, 
+    .table th {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .table .badge-status {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+    }
+    
+    /* Buttons */
+    .btn {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    
+    .btn-sm {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+    }
+    
+    /* Charts - smaller */
+    .chart-container {
+        height: 150px;
+    }
+    
+    /* Modals - full screen on small phones */
+    .modal-dialog {
+        margin: 5px;
+    }
+    
+    .modal-content {
+        border-radius: 8px;
+    }
+    
+    /* Notification panel */
+    .notification-panel {
+        width: calc(100% - 10px);
+        right: 5px;
+        top: 50px;
+        max-height: 200px;
+    }
+    
+    /* Pagination */
+    .pagination .page-link {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+    
+    /* Form elements */
+    .form-control, 
+    .form-select {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    /* Cards */
+    .card-body {
+        padding: 10px;
+    }
+    
+    .card-header {
+        padding: 8px 12px;
+    }
+}
+
+/* ============================================================
+   TOUCH-FRIENDLY TARGETS (mobile)
+   ============================================================ */
+
+@media (max-width: 767px) {
+    button,
+    .btn,
+    .nav-link,
+    .sidebar-nav .nav-item a,
+    .page-link,
+    .dropdown-item,
+    .btn-close {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    input, 
+    select, 
+    textarea {
+        font-size: 16px !important; /* Prevents iOS zoom */
+    }
+    
+    /* Make touch targets larger */
+    .form-check-input {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .form-check-label {
+        font-size: 0.9rem;
+        padding-left: 4px;
+    }
+}
+
+/* ============================================================
+   TABLET PORTRAIT (specific fixes)
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* 2-column layout for KPIs */
+    .kpi-card {
+        padding: 16px 20px;
+    }
+    
+    .kpi-value {
+        font-size: 1.2rem;
+    }
+    
+    /* Charts */
+    .chart-container {
+        height: 200px;
+    }
+}
+
+/* ============================================================
+   DARK MODE RESPONSIVE OVERRIDES
+   ============================================================ */
+
+[data-theme="dark"] .sidebar-overlay {
+    background: rgba(0,0,0,0.7);
+}
+
+/* ============================================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================================ */
+
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================================
+   PRINT STYLES (enhanced)
+   ============================================================ */
+
+@media print {
+    /* Hide everything except content */
+    .sidebar,
+    .top-nav,
+    .btn,
+    .no-print,
+    #sidebar-toggle,
+    #theme-toggle,
+    .dropdown,
+    .notification-panel,
+    .sidebar-overlay {
+        display: none !important;
+    }
+    
+    /* Full width content */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .page-content {
+        padding: 20px !important;
+    }
+    
+    /* Card styles */
+    .card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 16px !important;
+    }
+    
+    .card-body {
+        padding: 12px !important;
+    }
+    
+    /* Table styles */
+    .table {
+        font-size: 9pt !important;
+        width: 100% !important;
+    }
+    
+    .table th,
+    .table td {
+        padding: 4px 8px !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .table thead {
+        display: table-header-group;
+    }
+    
+    .table tbody {
+        display: table-row-group;
+    }
+    
+    /* Badge styles */
+    .badge-status {
+        border: 1px solid #000 !important;
+        padding: 1px 6px !important;
+        background: transparent !important;
+        color: #000 !important;
+    }
+    
+    /* Body */
+    body {
+        background: white !important;
+        color: #000 !important;
+    }
+    
+    /* Charts - make them visible */
+    canvas {
+        max-width: 100% !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    /* Page breaks */
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .page-break-after {
+        page-break-after: always;
+    }
+}
+
+
+/* ============================================================
+   FULL RESPONSIVE ENHANCEMENT (phones, tablets, desktops)
+   Additive — does not change desktop design
+   ============================================================ */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fluid containers */
+.page-content,
+.main-content .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Tables: horizontal scroll on small screens */
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Desktop: tables fit container; mobile: allow horizontal scroll */
+.table {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Forms */
+.form-control, .form-select, .input-group {
+    max-width: 100%;
+}
+
+.modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+}
+
+/* Cards stack naturally via Bootstrap grid */
+.row > [class*="col-"] {
+    min-width: 0;
+}
+
+/* Auth / Login */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 12px !important;
+        min-height: 100vh;
+    }
+    .auth-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 12px !important;
+    }
+    .auth-logo {
+        max-width: 96px !important;
+        height: auto !important;
+    }
+    .auth-title {
+        font-size: 1.25rem !important;
+    }
+    .auth-subtitle {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Phones */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed !important;
+        z-index: 1050 !important;
+        height: 100vh !important;
+        transform: translateX(-100%);
+        width: min(280px, 85vw) !important;
+    }
+    .sidebar.open {
+        transform: translateX(0) !important;
+        box-shadow: 4px 0 24px rgba(0,0,0,0.25);
+    }
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    .sidebar-toggle {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    .top-nav {
+        padding: 0.5rem 0.75rem !important;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+    .top-nav-title {
+        font-size: 0.95rem !important;
+        max-width: 50vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .page-content {
+        padding: 12px !important;
+    }
+    .page-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.75rem !important;
+    }
+    .page-header .btn,
+    .page-header .btn-group {
+        width: 100%;
+    }
+    .kpi-card, .card {
+        margin-bottom: 0.75rem;
+    }
+    .kpi-value, .card-text.h3, h3.card-text {
+        font-size: 1.15rem !important;
+    }
+    /* Action buttons in tables */
+    td .btn {
+        margin: 2px 0;
+    }
+    /* Filter rows stack */
+    .card-body .row.g-3 > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .btn-group {
+        flex-wrap: wrap;
+    }
+    /* Charts */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    /* Dropdown user menu */
+    .dropdown-menu {
+        max-width: 90vw;
+    }
+    /* Report cards */
+    .report-card {
+        margin-bottom: 0.75rem;
+    }
+    /* Toast host */
+    #sbt-toast-host {
+        left: 12px !important;
+        right: 12px !important;
+        max-width: none !important;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .sidebar-title {
+        font-size: 0.85rem !important;
+    }
+    .btn {
+        font-size: 0.875rem;
+    }
+    .table {
+        font-size: 0.8rem;
+        min-width: 480px;
+    }
+}
+
+/* Tablets portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar {
+        position: fixed !important;
+        z-index: 1050;
+        transform: translateX(-100%);
+        width: 260px !important;
+    }
+    .sidebar.open {
+        transform: translateX(0) !important;
+    }
+    .main-content {
+        margin-left: 0 !important;
+    }
+    .page-content {
+        padding: 16px 20px !important;
+    }
+    .table {
+        min-width: 0;
+    }
+}
+
+/* Large tablets / small laptops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .page-content {
+        padding: 20px 24px;
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+    .auth-container {
+        padding: 8px !important;
+        align-items: flex-start !important;
+    }
+    .sidebar {
+        overflow-y: auto;
+    }
+}
+
+/* Touch-friendly targets */
+@media (hover: none) and (pointer: coarse) {
+    .sidebar-nav .nav-item a,
+    .btn,
+    .page-link {
+        min-height: 42px;
+    }
+    .sidebar-nav .nav-item a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
+/* Prevent horizontal page scroll */
+body {
+    overflow-x: hidden;
+}
+
+.main-content {
+    max-width: 100vw;
+}
+
+/* Print still clean */
+@media print {
+    .sidebar, .top-nav, .sidebar-overlay, #sbt-toast-host {
+        display: none !important;
+    }
+    .main-content {
+        margin: 0 !important;
+    }
+}
+
+
+
+/* ============================================================
+   Budget by Category + tables: visible on desktop, scroll on phone
+   ============================================================ */
+
+.main-content,
+.page-content {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.card {
+    max-width: 100%;
+}
+
+.card-header.d-flex {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#budget-table-body,
+.table-responsive {
+    max-width: 100%;
+}
+
+/* Desktop and large screens: no forced min-width, full columns visible */
+@media (min-width: 992px) {
+    .table-responsive {
+        overflow-x: visible;
+    }
+    .table {
+        min-width: 0 !important;
+        width: 100% !important;
+        table-layout: auto;
+    }
+    .table th,
+    .table td {
+        white-space: normal;
+        word-break: break-word;
+    }
+    /* Budget page KPI row */
+    #budget-annual,
+    #budget-spent,
+    #budget-remaining,
+    #budget-percentage {
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+    .table {
+        min-width: 640px;
+    }
+}
+
+/* Phone: horizontal scroll for wide budget table */
+@media (max-width: 767px) {
+    .table-responsive {
+        overflow-x: auto !important;
+        display: block;
+        width: 100%;
+    }
+    .table {
+        min-width: 640px;
+    }
+    .card-header.d-flex {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    .card-header .btn {
+        width: 100%;
+    }
+}
+
+
+/* Report cards equal size & responsive */
+.report-card {
+    height: 100%;
+    margin-bottom: 0;
+}
+.report-card .card-body {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.75rem;
+}
+.report-card h6 {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+.report-card small {
+    font-size: 0.75rem;
+}
+#report-content {
+    overflow-x: auto;
+    max-width: 100%;
+}
+#report-content .table {
+    width: 100%;
+    min-width: 0;
+}
+@media (max-width: 767px) {
+    .report-card .card-body {
+        min-height: 100px;
+        padding: 0.75rem 0.5rem;
+    }
+    .report-card h6 {
+        font-size: 0.85rem;
+    }
+    #report-content .row > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+
+/* Users + Receipts tables responsive */
+#users-table-body img,
+.table img.rounded-circle {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: cover;
+}
+@media (max-width: 767px) {
+    .page-header .btn { width: 100%; margin-bottom: 0.35rem; }
+    .card-header.d-flex { flex-direction: column; align-items: stretch !important; gap: 0.5rem; }
+    #user-search, #receipt-search { width: 100% !important; }
+}
+
+
+/* ========== Global responsive polish ========== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.main-content, .page-content {
+  max-width: 100%;
+  min-width: 0;
+}
+.page-content .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.card {
+  max-width: 100%;
+  overflow: hidden;
+}
+.card-header h5, .card-title {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.table-responsive {
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+.btn {
+  white-space: normal;
+}
+#admin-purge-all-btn {
+  width: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  .page-content {
+    padding: 0.75rem !important;
+  }
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    z-index: 1040;
+  }
+  .top-nav-title {
+    font-size: 1rem;
+    max-width: 55vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .page-content .col-md-6,
+  .page-content .col-md-4,
+  .page-content .col-md-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .card-header.bg-danger h5 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  #admin-purge-all-btn {
+    width: 100%;
+  }
+  .d-flex.gap-2 {
+    flex-wrap: wrap;
+  }
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  .table th, .table td {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-title { font-size: 0.85rem; }
+  .card-header h5 { font-size: 0.9rem; }
+  .btn-sm { padding: 0.25rem 0.45rem; }
+}
+
+
+/* Notification message icon + red count */
+.notification-btn {
+  padding: 0.25rem 0.4rem !important;
+  line-height: 1;
+}
+.notification-btn .bi-chat-dots-fill {
+  font-size: 1.35rem !important;
+  color: #0d6efd !important;
+}
+.notification-count-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #dc3545;
+  color: #fff !important;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.15rem;
+  text-align: center;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.notification-count-badge.d-none {
+  display: none !important;
+}
+
+
+/* Report auto-scroll focus */
+#report-content.report-highlight {
+  outline: 3px solid #0d6efd;
+  outline-offset: 4px;
+  transition: outline 0.3s ease;
+}
+.report-card { cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.report-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
+
+
+/* Stats summary cards — equal, responsive, no broken layout */
+.stats-cards-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.stats-cards-row > [class*="col-"] {
+  min-width: 0;
+  display: flex;
+}
+.stats-card {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.stats-card .card-body {
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stats-card .card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stats-card .card-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  word-break: break-word;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  transform: none !important;
+}
+@media (max-width: 767.98px) {
+  .stats-card .card-text { font-size: 1.1rem; }
+  .stats-card .card-body { min-height: 76px; padding: 0.75rem !important; }
+}
+@media (min-width: 768px) {
+  .stats-cards-row > .col-md {
+    flex: 1 1 0;
+    max-width: 20%;
+  }
+}

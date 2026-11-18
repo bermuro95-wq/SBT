@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Users - SELAM BERTU TESFA</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link href="style.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+    <link href="ux-polish.css" rel="stylesheet">
+    <link rel="stylesheet" href="ux-v2.css">
+    <link href="ux-fast.css" rel="stylesheet">
+    <link href="ux-smooth.css" rel="stylesheet">
+    <link href="responsive.css" rel="stylesheet">
+    <link href="responsive-all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="SBT" class="sidebar-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><text y=%2230%22 font-size=%2220%22>SBT</text></svg>'">
+                <h5 class="sidebar-title">SELAM BERTU TESFA</h5>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html"><i class="bi bi-grid"></i> <span data-i18n="dashboard">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="income.html"><i class="bi bi-arrow-down-circle"></i> <span data-i18n="income">Income</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="expenses.html"><i class="bi bi-arrow-up-circle"></i> <span data-i18n="expenses">Expenses</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="transaction.html"><i class="bi bi-list-ul"></i> <span data-i18n="transactions">Transactions</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="budget.html"><i class="bi bi-pie-chart"></i> <span data-i18n="budget">Budget</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="receipts.html"><i class="bi bi-journal-check"></i> <span data-i18n="audit_evidence">Audit Evidence</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html"><i class="bi bi-file-earmark-text"></i> <span data-i18n="reports">Reports</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html"><i class="bi bi-graph-up"></i> <span data-i18n="analytics">Analytics</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="approvals.html"><i class="bi bi-check2-circle"></i> <span data-i18n="approvals">Approvals</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item active admin-only d-none">
+                    <a href="users.html"><i class="bi bi-people"></i> <span data-i18n="users">Users</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="audit-logs.html"><i class="bi bi-clipboard-data"></i> <span data-i18n="audit_logs">Audit Logs</span></a>
+                </li>
+                <li class="nav-item super-admin-only d-none">
+                    <a href="settings.html"><i class="bi bi-gear"></i> <span data-i18n="settings">Settings</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="UserProfile.html"><i class="bi bi-person"></i> <span data-i18n="profile">Profile</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="logout-btn"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Logout</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Nav -->
+            <header class="top-nav">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link sidebar-toggle" id="sidebar-toggle">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                        <span class="top-nav-title" data-i18n="users">User Management</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <button type="button" class="btn btn-link position-relative notification-btn" id="notifications-btn" title="Messages">
+                            <i class="bi bi-chat-dots-fill fs-5 text-primary"></i>
+                            <span class="notification-count-badge d-none" id="notification-badge">0</span>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-translate"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item lang-option" data-lang="en">English</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="am">አማርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="ti">ትግርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="om">Afaan Oromo</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-link" id="theme-toggle">
+                            <i class="bi bi-moon-fill" id="theme-icon"></i>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="assets/images/logo.png" alt="User" class="avatar-sm" id="user-avatar">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><span class="dropdown-item-text" id="user-name">Loading...</span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="UserProfile.html"><i class="bi bi-person"></i> Profile</a></li>
+                                <li><a class="dropdown-item text-danger" id="logout-dropdown" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Toolbar -->
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-primary" id="create-user-btn">
+                            <i class="bi bi-plus-circle"></i> <span data-i18n="add_user">Add User</span>
+                        </button>
+                        <button class="btn btn-outline-secondary" id="refresh-btn">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                        <select class="form-select form-select-sm w-auto" id="user-filter-role">
+                            <option value="all">All Roles</option>
+                            <option value="administrator">Administrator</option>
+                            <option value="accountant">Accountant</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" id="user-filter-status">
+                            <option value="all">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" id="user-search" placeholder="Search users...">
+                            <button class="btn btn-outline-secondary" id="search-btn">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Last Login</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body">
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted py-4">No users found.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <span id="users-pagination-info">Showing 0 users</span>
+                        <nav>
+                            <ul class="pagination pagination-sm mb-0" id="users-pagination">
+                                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create/Edit User Modal -->
+    <div class="modal fade" id="user-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="user-modal-title">Add User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="user-form" novalidate>
+                        <input type="hidden" id="user-id">
+                        
+                        
+                        <div class="mb-3 text-center">
+                            <label class="form-label d-block">Profile Photo</label>
+                            <img id="user-avatar-preview" src="assets/images/logo.png" alt="Avatar"
+                                 class="rounded-circle mb-2" style="width:72px;height:72px;object-fit:cover;border:2px solid #dee2e6;">
+                            <div>
+                                <input type="file" class="form-control form-control-sm" id="user-avatar-file" accept="image/*">
+                                <small class="text-muted">JPG/PNG, max 2MB. Shown in users list after save.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="user-fullname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="user-email" required>
+                        </div>
+                        <div class="mb-3" id="password-field">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="user-password" minlength="8">
+                            <small class="text-muted">Minimum 8 characters</small>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Role</label>
+                            <select class="form-select" id="user-role" required>
+                                <option value="administrator">Administrator</option>
+                                <option value="accountant">Accountant</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" id="user-status">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-user-btn">Save User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel d-none" id="notification-panel">
+        <div class="notification-header">
+            <h6>Notifications</h6>
+            <button class="btn btn-sm btn-link" id="mark-all-read">Mark all read</button>
+        </div>
+        <div class="notification-list" id="notification-list">
+            <div class="text-center text-muted p-3">No notifications</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="i18n.js"></script>
+    <script src="auth.js"></script>
+    <script src="permissions.js"></script>
+    <script src="utils.js"></script>
+    <script src="notifications.js"></script>
+    <script src="users.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+/* ============================================================
+   SELAM BERTU TESFA - Dashboard Specific Styles
+   Version: 1.0.0
+   ============================================================ */
+
+/* ============================================================
+   DASHBOARD STATS
+   ============================================================ */
+
+.dashboard-stat {
+    transition: transform 0.2s ease;
+}
+
+.dashboard-stat:hover {
+    transform: translateY(-2px);
+}
+
+.stat-trend {
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-trend.up { 
+    color: var(--success-color); 
+}
+
+.stat-trend.down { 
+    color: var(--danger-color); 
+}
+
+.stat-trend i {
+    font-size: 0.7rem;
+}
+
+/* ============================================================
+   CHART CONTAINERS
+   ============================================================ */
+
+.chart-container {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+.chart-container-sm {
+    height: 200px;
+}
+
+.chart-container-lg {
+    height: 300px;
+}
+
+/* ============================================================
+   RECENT TRANSACTIONS
+   ============================================================ */
+
+.transaction-row {
+    transition: background var(--transition-speed) ease;
+}
+
+.transaction-row:hover {
+    background: var(--bg-hover);
+}
+
+.transaction-type-badge {
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    border-radius: 12px;
+}
+
+.transaction-type-badge.income {
+    background: #d4edda;
+    color: #155724;
+}
+
+.transaction-type-badge.expense {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ============================================================
+   BUDGET WIDGET
+   ============================================================ */
+
+.budget-widget {
+    padding: 16px;
+}
+
+.budget-widget .budget-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.budget-widget .budget-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.budget-widget .budget-progress {
+    margin-top: 8px;
+}
+
+/* ============================================================
+   ACTIVITY TIMELINE
+   ============================================================ */
+
+.activity-timeline {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.activity-timeline li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.activity-timeline li:last-child {
+    border-bottom: none;
+}
+
+.activity-timeline .activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.activity-timeline .activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-timeline .activity-text {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.activity-timeline .activity-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   QUICK STATS
+   ============================================================ */
+
+.quick-stat {
+    text-align: center;
+    padding: 16px;
+}
+
+.quick-stat .stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.quick-stat .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* ============================================================
+   WELCOME SECTION
+   ============================================================ */
+
+.welcome-section {
+    padding: 20px 0 10px 0;
+}
+
+.welcome-section h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.welcome-section .welcome-sub {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* ============================================================
+   ALERT / NOTIFICATION BADGE
+   ============================================================ */
+
+#notification-badge {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================
+   SIDEBAR COLLAPSED STATE (desktop)
+   ============================================================ */
+
+@media (min-width: 992px) {
+    .sidebar-collapsed .sidebar {
+        width: var(--sidebar-collapsed);
+    }
+    
+    .sidebar-collapsed .sidebar-title,
+    .sidebar-collapsed .sidebar-nav .nav-item a span {
+        display: none;
+    }
+    
+    .sidebar-collapsed .sidebar-nav .nav-item a {
+        justify-content: center;
+        padding: 12px;
+    }
+    
+    .sidebar-collapsed .sidebar-nav .nav-item a i {
+        margin: 0;
+        font-size: 1.4rem;
+    }
+    
+    .sidebar-collapsed .main-content {
+        margin-left: var(--sidebar-collapsed);
+    }
+    
+    .sidebar-collapsed .sidebar-header {
+        justify-content: center;
+        padding: 16px;
+    }
+}

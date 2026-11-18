@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Supabase Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .status {
+            font-weight: bold;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+    <link href="responsive.css" rel="stylesheet">
+    <link href="responsive-all.css" rel="stylesheet">
+</head>
+<body>
+    <h1>🔌 Supabase Connection Test</h1>
+    
+    <div class="card">
+        <h2>Configuration</h2>
+        <p><strong>URL:</strong> <code id="url-display"></code></p>
+        <p><strong>Key:</strong> <code id="key-display"></code></p>
+    </div>
+    
+    <div class="card">
+        <h2>Test Results</h2>
+        <div id="results">
+            <p>Testing connection...</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Quick Actions</h2>
+        <button onclick="testAuth()" style="margin: 5px; padding: 10px; cursor: pointer;">Test Auth</button>
+        <button onclick="testDatabase()" style="margin: 5px; padding: 10px; cursor: pointer;">Test Database</button>
+        <button onclick="testStorage()" style="margin: 5px; padding: 10px; cursor: pointer;">Test Storage</button>
+        <button onclick="runAllTests()" style="margin: 5px; padding: 10px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px;">Run All Tests</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // ============================================
+        // YOUR CREDENTIALS
+        // ============================================
+        const SUPABASE_URL = 'https://dfaxwzsiwrpwgambutro.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_P5FLmp73J7uYuo6dm2qvgA_Ojslu_sO';
+        
+        // Initialize Supabase
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        // Display config
+        document.getElementById('url-display').textContent = SUPABASE_URL;
+        document.getElementById('key-display').textContent = SUPABASE_ANON_KEY.substring(0, 25) + '...';
+        
+        // ============================================
+        // TEST FUNCTIONS
+        // ============================================
+        
+        async function testAuth() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing authentication...</p>';
+            
+            try {
+                // Get current session
+                const { data: { session }, error } = await supabase.auth.getSession();
+                
+                if (error) throw error;
+                
+                results.innerHTML = `
+                    <div class="info">
+                        <strong>Auth Status:</strong> 
+                        ${session ? '✅ Authenticated' : 'ℹ️ Not authenticated (no session)'}
+                    </div>
+                    <pre>${JSON.stringify(session, null, 2)}</pre>
+                `;
+                
+                if (!session) {
+                    results.innerHTML += `
+                        <div class="info">
+                            <strong>Try signing in:</strong>
+                            <button onclick="quickLogin()" style="margin-top: 10px; padding: 8px; cursor: pointer;">Quick Login Test</button>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML = `<div class="error">❌ Auth Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function testDatabase() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing database connection...</p>';
+            
+            try {
+                // Try to query a table
+                const { data, error } = await supabase.from('financial_years').select('*');
+                
+                if (error) {
+                    // Try a different approach
+                    if (error.message.includes('does not exist')) {
+                        results.innerHTML = `
+                            <div class="info">
+                                <strong>Database connected but table "financial_years" doesn't exist</strong>
+                                <p>You need to run the schema first.</p>
+                                <button onclick="testSchemaExists()" style="margin-top: 10px; padding: 8px; cursor: pointer;">Check Schema</button>
+                            </div>
+                        `;
+                    } else {
+                        results.innerHTML = `<div class="error">❌ Database Error: ${error.message}</div>`;
+                    }
+                } else {
+                    results.innerHTML = `
+                        <div class="success">✅ Database connected successfully!</div>
+                        <p>Data found: <strong>${data.length}</strong> records</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML = `<div class="error">❌ Database Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function testStorage() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing storage...</p>';
+            
+            try {
+                // List buckets
+                const { data, error } = await supabase.storage.listBuckets();
+                
+                if (error) throw error;
+                
+                results.innerHTML = `
+                    <div class="success">✅ Storage connected successfully!</div>
+                    <p>Buckets: <strong>${data.length}</strong></p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                    ${data.length === 0 ? `
+                        <div class="info">
+                            <strong>No buckets found.</strong>
+                            <p>Create buckets: "receipts" and "avatars"</p>
+                        </div>
+                    ` : ''}
+                `;
+            } catch (error) {
+                results.innerHTML = `<div class="error">❌ Storage Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function testSchemaExists() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Checking schema...</p>';
+            
+            try {
+                // Try to query system tables
+                const { data, error } = await supabase
+                    .from('roles')
+                    .select('*');
+                
+                if (error) {
+                    results.innerHTML = `<div class="error">❌ No tables exist yet. Run the SQL schema!</div>`;
+                } else {
+                    results.innerHTML = `
+                        <div class="success">✅ Schema exists!</div>
+                        <p>Roles found: <strong>${data.length}</strong></p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML = `<div class="error">❌ Schema Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function quickLogin() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing quick login...</p>';
+            
+            // Enter your test email and password
+            const email = prompt('Enter test email:');
+            const password = prompt('Enter test password:');
+            
+            if (!email || !password) return;
+            
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+                
+                if (error) throw error;
+                
+                results.innerHTML = `
+                    <div class="success">✅ Login successful!</div>
+                    <p>User: <strong>${data.user.email}</strong></p>
+                    <pre>${JSON.stringify(data.session, null, 2)}</pre>
+                `;
+            } catch (error) {
+                results.innerHTML = `<div class="error">❌ Login Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function runAllTests() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Running all tests...</p>';
+            
+            // Test 1: Basic connection
+            try {
+                const { error } = await supabase.from('financial_years').select('*');
+                if (!error) {
+                    results.innerHTML += '<div class="success">✅ Connection: Working</div>';
+                } else if (error.message.includes('does not exist')) {
+                    results.innerHTML += '<div class="success">✅ Connection: Working (no tables yet)</div>';
+                } else {
+                    results.innerHTML += `<div class="error">❌ Connection: ${error.message}</div>`;
+                }
+            } catch (err) {
+                results.innerHTML += `<div class="error">❌ Connection: ${err.message}</div>`;
+            }
+            
+            // Test 2: Auth
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+                results.innerHTML += session 
+                    ? '<div class="success">✅ Auth: Authenticated</div>'
+                    : '<div class="info">ℹ️ Auth: No session (not logged in)</div>';
+            } catch (err) {
+                results.innerHTML += `<div class="error">❌ Auth: ${err.message}</div>`;
+            }
+            
+            // Test 3: Storage
+            try {
+                const { data: buckets } = await supabase.storage.listBuckets();
+                results.innerHTML += `<div class="success">✅ Storage: ${buckets.length} buckets found</div>`;
+            } catch (err) {
+                results.innerHTML += `<div class="error">❌ Storage: ${err.message}</div>`;
+            }
+        }
+        
+        // Auto-run test on page load
+        window.onload = function() {
+            setTimeout(runAllTests, 500);
+        };
+    </script>
+</body>
+</html>

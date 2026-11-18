@@ -1,0 +1,50 @@
+/* ============================================================
+   Motion / layout stability ONLY — original brand colors unchanged
+   ============================================================ */
+
+html {
+    scroll-behavior: auto !important;
+}
+
+/* No page jump / slide animations */
+.page-content,
+.main-content {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+
+.card,
+.btn,
+.nav-item a,
+.sidebar,
+.sidebar-nav .nav-item a,
+.kpi-card,
+.modal,
+.modal.fade .modal-dialog {
+    animation: none !important;
+    transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease !important;
+    transform: none !important;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus,
+.nav-item a:hover,
+.nav-item a:active {
+    transform: none !important;
+}
+
+/* Keep menus visible once un-hidden (no color changes) */
+.sidebar-nav .admin-only:not(.d-none),
+.sidebar-nav .super-admin-only:not(.d-none),
+.admin-only:not(.d-none),
+.super-admin-only:not(.d-none) {
+    visibility: visible !important;
+}
+
+.sidebar-nav li.admin-only:not(.d-none),
+.sidebar-nav li.super-admin-only:not(.d-none) {
+    display: list-item !important;
+}

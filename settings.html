@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Settings - SELAM BERTU TESFA</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link href="style.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+    <link href="ux-polish.css" rel="stylesheet">
+    <link rel="stylesheet" href="ux-v2.css">
+    <link href="ux-fast.css" rel="stylesheet">
+    <link href="ux-smooth.css" rel="stylesheet">
+    <link href="responsive.css" rel="stylesheet">
+    <link href="responsive-all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="SBT" class="sidebar-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><text y=%2230%22 font-size=%2220%22>SBT</text></svg>'">
+                <h5 class="sidebar-title">SELAM BERTU TESFA</h5>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html"><i class="bi bi-grid"></i> <span data-i18n="dashboard">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="income.html"><i class="bi bi-arrow-down-circle"></i> <span data-i18n="income">Income</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="expenses.html"><i class="bi bi-arrow-up-circle"></i> <span data-i18n="expenses">Expenses</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="transaction.html"><i class="bi bi-list-ul"></i> <span data-i18n="transactions">Transactions</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="budget.html"><i class="bi bi-pie-chart"></i> <span data-i18n="budget">Budget</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="receipts.html"><i class="bi bi-journal-check"></i> <span data-i18n="audit_evidence">Audit Evidence</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html"><i class="bi bi-file-earmark-text"></i> <span data-i18n="reports">Reports</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html"><i class="bi bi-graph-up"></i> <span data-i18n="analytics">Analytics</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="approvals.html"><i class="bi bi-check2-circle"></i> <span data-i18n="approvals">Approvals</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item admin-only d-none">
+                    <a href="users.html"><i class="bi bi-people"></i> <span data-i18n="users">Users</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="audit-logs.html"><i class="bi bi-clipboard-data"></i> <span data-i18n="audit_logs">Audit Logs</span></a>
+                </li>
+                <li class="nav-item active super-admin-only d-none">
+                    <a href="settings.html"><i class="bi bi-gear"></i> <span data-i18n="settings">Settings</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="UserProfile.html"><i class="bi bi-person"></i> <span data-i18n="profile">Profile</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="logout-btn"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Logout</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Nav -->
+            <header class="top-nav">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link sidebar-toggle" id="sidebar-toggle">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                        <span class="top-nav-title" data-i18n="settings">System Settings</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <button type="button" class="btn btn-link position-relative notification-btn" id="notifications-btn" title="Messages">
+                            <i class="bi bi-chat-dots-fill fs-5 text-primary"></i>
+                            <span class="notification-count-badge d-none" id="notification-badge">0</span>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-translate"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item lang-option" data-lang="en">English</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="am">አማርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="ti">ትግርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="om">Afaan Oromo</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-link" id="theme-toggle">
+                            <i class="bi bi-moon-fill" id="theme-icon"></i>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="assets/images/logo.png" alt="User" class="avatar-sm" id="user-avatar">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><span class="dropdown-item-text" id="user-name">Loading...</span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="UserProfile.html"><i class="bi bi-person"></i> Profile</a></li>
+                                <li><a class="dropdown-item text-danger" id="logout-dropdown" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="row">
+                    <!-- Organization Settings -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Organization Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="org-settings-form">
+                                    <div class="mb-3">
+                                        <label class="form-label">Organization Name</label>
+                                        <input type="text" class="form-control" id="org-name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Default Currency</label>
+                                        <select class="form-select" id="org-currency">
+                                            <option value="ETB">ETB - Ethiopian Birr</option>
+                                            <option value="USD">USD - US Dollar</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Default Language</label>
+                                        <select class="form-select" id="org-language">
+                                            <option value="en">English</option>
+                                            <option value="am">አማርኛ</option>
+                                            <option value="ti">ትግርኛ</option>
+                                            <option value="om">Afaan Oromo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Default Theme</label>
+                                        <select class="form-select" id="org-theme">
+                                            <option value="light">Light</option>
+                                            <option value="dark">Dark</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Settings</button>
+                                    <div id="org-settings-message" class="mt-3"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories Management -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Category Management</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#income-categories-tab">Income</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#expense-categories-tab">Expense</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane active" id="income-categories-tab">
+                                        <div class="d-flex gap-2 mb-3">
+                                            <input type="text" class="form-control" id="new-income-category" placeholder="New category name">
+                                            <button class="btn btn-primary btn-sm" id="add-income-category">Add</button>
+                                        </div>
+                                        <div id="income-categories-list"></div>
+                                    </div>
+                                    <div class="tab-pane" id="expense-categories-tab">
+                                        <div class="d-flex gap-2 mb-3">
+                                            <input type="text" class="form-control" id="new-expense-category" placeholder="New category name">
+                                            <button class="btn btn-primary btn-sm" id="add-expense-category">Add</button>
+                                        </div>
+                                        <div id="expense-categories-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Payment Methods</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-3">
+                                    <input type="text" class="form-control" id="new-payment-method" placeholder="New payment method">
+                                    <button class="btn btn-primary btn-sm" id="add-payment-method">Add</button>
+                                </div>
+                                <div id="payment-methods-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional System Features -->
+                <div class="row g-3 mt-2 mb-3">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0"><i class="bi bi-shield-check me-1"></i> Security &amp; Access</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Session timeout (minutes)</label>
+                                    <input type="number" class="form-control" id="setting-session-timeout" min="15" max="480" value="60" placeholder="60">
+                                    <small class="text-muted">Auto-logout after inactivity (15–480 min)</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Max failed login attempts (lock)</label>
+                                    <input type="number" class="form-control" id="setting-max-login-attempts" min="3" max="20" value="5">
+                                    <small class="text-muted">After this many failed tries, account is locked temporarily</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Lockout duration (minutes)</label>
+                                    <input type="number" class="form-control" id="setting-lockout-minutes" min="5" max="1440" value="15">
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-password-lock-enabled" checked>
+                                    <label class="form-check-label" for="setting-password-lock-enabled">Enable password try-lock (Super Admin controlled)</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-allow-password-reset" checked>
+                                    <label class="form-check-label" for="setting-allow-password-reset">Allow password reset emails</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-require-approval" checked>
+                                    <label class="form-check-label" for="setting-require-approval">Require approval for new income / expenses</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-block-inactive" checked>
+                                    <label class="form-check-label" for="setting-block-inactive">Block inactive &amp; suspended users from login</label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="setting-maintenance-mode">
+                                    <label class="form-check-label" for="setting-maintenance-mode">Maintenance mode (only Super Admin can access)</label>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm" id="save-security-settings">
+                                    <i class="bi bi-save"></i> Save Security Settings
+                                </button>
+                                <div id="security-settings-msg" class="mt-2 small"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0"><i class="bi bi-sliders me-1"></i> Financial Preferences</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Approval threshold (ETB)</label>
+                                    <input type="number" class="form-control" id="setting-approval-threshold" min="0" step="100" value="0" placeholder="0 = all require approval">
+                                    <small class="text-muted">Amounts above this need admin approval (0 = all)</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Default financial year label</label>
+                                    <input type="text" class="form-control" id="setting-fy-label" placeholder="e.g. FY 2025/26">
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-require-income-before-expense" checked>
+                                    <label class="form-check-label" for="setting-require-income-before-expense">Require approved income in Grand Budget before expenses</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-allow-negative-budget">
+                                    <label class="form-check-label" for="setting-allow-negative-budget">Allow expenses beyond budget allocation</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="setting-notify-approvals" checked>
+                                    <label class="form-check-label" for="setting-notify-approvals">Notify admins on new submissions</label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="setting-show-grand-budget" checked>
+                                    <label class="form-check-label" for="setting-show-grand-budget">Show Grand Budget panel on Budget page</label>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm" id="save-finance-settings">
+                                    <i class="bi bi-save"></i> Save Financial Preferences
+                                </button>
+                                <div id="finance-settings-msg" class="mt-2 small"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BACKUP & RECOVERY -->
+                <div class="row g-3 mt-4 mb-4 super-admin-only" id="backup-restore-section">
+                    <div class="col-12">
+                        <div class="card border-success">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="card-title mb-0 text-white"><i class="bi bi-cloud-arrow-down"></i> Backup &amp; Recovery (Super Admin)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="small text-muted mb-3">Restore financial data from a previous backup. Choose a year or upload a backup JSON file downloaded during purge.</p>
+                                <div class="row g-3 align-items-end">
+                                    <div class="col-md-3">
+                                        <label class="form-label small">Year to recover</label>
+                                        <input type="number" class="form-control" id="restore-year" min="2000" max="2100" placeholder="e.g. 2025">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small">Or upload backup JSON</label>
+                                        <input type="file" class="form-control" id="restore-file" accept=".json,application/json">
+                                    </div>
+                                    <div class="col-md-5 d-flex flex-wrap gap-2">
+                                        <button type="button" class="btn btn-success" id="restore-from-year-btn">
+                                            <i class="bi bi-arrow-counterclockwise"></i> Recover by year
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success" id="restore-from-file-btn">
+                                            <i class="bi bi-upload"></i> Restore from file
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary" id="list-backups-btn">
+                                            List DB backups
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="restore-message" class="mt-3"></div>
+                                <div id="backup-list" class="mt-2 small"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DANGER ZONE -->
+                <div class="row g-3 mt-1 mb-4 super-admin-only" id="danger-zone-section">
+                    <div class="col-12">
+                        <div class="card border-danger">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="card-title mb-0 text-white">Danger Zone — Permanent Data Removal (Super Admin only)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-2">
+                                    Permanently deletes <strong>income, expenses, budgets, receipts, evidence, approvals, notifications, memos, and audit logs</strong>.
+                                    User accounts and organization settings are <strong>not</strong> removed.
+                                </p>
+                                <p class="small text-danger mb-3">This cannot be undone. Confirm with your admin email and password.</p>
+                                <button type="button" class="btn btn-danger" id="admin-purge-all-btn">
+                                    <i class="bi bi-trash"></i> Delete All Financial &amp; Audit Data
+                                </button>
+                                <div id="purge-message" class="mt-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADMIN ACTIVITY (bottom) -->
+                <div class="row g-3 mt-1 mb-5 super-admin-only" id="admin-activity-section">
+                    <div class="col-12">
+                        <div class="card border-primary">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                <h5 class="card-title mb-0 text-white"><i class="bi bi-activity"></i> Admin &amp; Staff Activity (Super Admin)</h5>
+                                <button type="button" class="btn btn-sm btn-light" id="refresh-admin-activity-btn">Refresh</button>
+                            </div>
+                            <div class="card-body">
+                                <p class="small text-muted">Approvals, user changes, income/expense actions, settings changes — who did what and when.</p>
+                                <div class="table-responsive" style="max-height:420px;overflow:auto;">
+                                    <table class="table table-sm table-hover mb-0" style="table-layout:auto;width:100%;">
+                                        <thead class="table-light sticky-top">
+                                            <tr>
+                                                <th style="white-space:nowrap;">When</th>
+                                                <th style="white-space:nowrap;min-width:120px;">Who</th>
+                                                <th>Action</th>
+                                                <th>Entity</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-activity-body">
+                                            <tr><td colspan="5" class="text-muted">Loading…</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.page-content -->
+        </div><!-- /.main -->
+    </div><!-- /.app-wrapper or similar -->
+
+    <!-- Notification Panel -->
+    <div class="notification-panel d-none" id="notification-panel">
+        <div class="notification-header">
+            <h6>Notifications</h6>
+            <button class="btn btn-sm btn-link" id="mark-all-read">Mark all read</button>
+        </div>
+        <div class="notification-list" id="notification-list">
+            <div class="text-center text-muted p-3">No notifications</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="i18n.js"></script>
+    <script src="auth.js"></script>
+    <script src="permissions.js"></script>
+    <script src="utils.js"></script>
+    <script src="notifications.js"></script>
+    <script src="settings.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

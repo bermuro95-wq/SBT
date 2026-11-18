@@ -1,0 +1,69 @@
+
+/* ============================================================
+   FAST UX overrides — snappy, professional, less delay
+   ============================================================ */
+:root {
+    --transition-speed: 0.15s !important;
+    --transition-fast: 0.1s !important;
+    --transition-slow: 0.2s !important;
+}
+
+.app-wrapper,
+.auth-container,
+.main-content {
+    animation-duration: 0.18s !important;
+}
+
+.stat-card,
+.kpi-card,
+.card {
+    animation-duration: 0.2s !important;
+    animation-delay: 0s !important;
+}
+
+.stat-card:nth-child(n),
+.kpi-card:nth-child(n) {
+    animation-delay: 0s !important;
+}
+
+.btn:hover:not(:disabled) {
+    /* transform disabled */ transform: translateY(-1px);
+    transition-duration: 0.1s !important;
+}
+
+.table tbody tr {
+    transition-duration: 0.08s !important;
+}
+
+.modal.fade .modal-dialog {
+    transition-duration: 0.18s !important;
+}
+
+/* Instant feedback on click */
+.btn:active:not(:disabled) {
+    /* transform disabled */ transform: scale(0.97);
+    transition-duration: 0.05s !important;
+}
+
+/* Sidebar snappy */
+.sidebar .nav-item a,
+.sidebar .nav-link {
+    transition-duration: 0.1s !important;
+}
+
+/* Reduce heavy shadows for cleaner/faster feel */
+.card:hover,
+.stat-card:hover,
+.kpi-card:hover {
+    /* transform disabled */ transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+
+/* MOTION STABILITY OVERRIDE — keep original colors */
+* { scroll-behavior: auto !important; }
+.page-content, .card, .btn, .nav-item a {
+  animation: none !important;
+  transform: none !important;
+}
+.btn:hover, .nav-item a:hover { transform: none !important; }

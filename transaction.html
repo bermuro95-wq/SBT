@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Transactions - SELAM BERTU TESFA</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css" rel="stylesheet">
+    
+    <link href="style.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+    <link href="ux-polish.css" rel="stylesheet">
+    <link rel="stylesheet" href="ux-v2.css">
+    <link href="ux-fast.css" rel="stylesheet">
+    <link href="ux-smooth.css" rel="stylesheet">
+    <link href="responsive.css" rel="stylesheet">
+    <link href="responsive-all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="SBT" class="sidebar-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><text y=%2230%22 font-size=%2220%22>SBT</text></svg>'">
+                <h5 class="sidebar-title">SELAM BERTU TESFA</h5>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html"><i class="bi bi-grid"></i> <span data-i18n="dashboard">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="income.html"><i class="bi bi-arrow-down-circle"></i> <span data-i18n="income">Income</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="expenses.html"><i class="bi bi-arrow-up-circle"></i> <span data-i18n="expenses">Expenses</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a href="transaction.html"><i class="bi bi-list-ul"></i> <span data-i18n="transactions">Transactions</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="budget.html"><i class="bi bi-pie-chart"></i> <span data-i18n="budget">Budget</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="receipts.html"><i class="bi bi-journal-check"></i> <span data-i18n="audit_evidence">Audit Evidence</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html"><i class="bi bi-file-earmark-text"></i> <span data-i18n="reports">Reports</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html"><i class="bi bi-graph-up"></i> <span data-i18n="analytics">Analytics</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="approvals.html"><i class="bi bi-check2-circle"></i> <span data-i18n="approvals">Approvals</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item admin-only d-none">
+                    <a href="users.html"><i class="bi bi-people"></i> <span data-i18n="users">Users</span></a>
+                </li>
+                <li class="nav-item admin-only d-none">
+                    <a href="audit-logs.html"><i class="bi bi-clipboard-data"></i> <span data-i18n="audit_logs">Audit Logs</span></a>
+                </li>
+                <li class="nav-item super-admin-only d-none">
+                    <a href="settings.html"><i class="bi bi-gear"></i> <span data-i18n="settings">Settings</span></a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="UserProfile.html"><i class="bi bi-person"></i> <span data-i18n="profile">Profile</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="logout-btn"><i class="bi bi-box-arrow-right"></i> <span data-i18n="logout">Logout</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Nav -->
+            <header class="top-nav">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link sidebar-toggle" id="sidebar-toggle">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                        <span class="top-nav-title" data-i18n="transactions">All Transactions</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <button type="button" class="btn btn-link position-relative notification-btn" id="notifications-btn" title="Messages">
+                            <i class="bi bi-chat-dots-fill fs-5 text-primary"></i>
+                            <span class="notification-count-badge d-none" id="notification-badge">0</span>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-translate"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item lang-option" data-lang="en">English</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="am">አማርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="ti">ትግርኛ</a></li>
+                                <li><a class="dropdown-item lang-option" data-lang="om">Afaan Oromo</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-link" id="theme-toggle">
+                            <i class="bi bi-moon-fill" id="theme-icon"></i>
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="assets/images/logo.png" alt="User" class="avatar-sm" id="user-avatar">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><span class="dropdown-item-text" id="user-name">Loading...</span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="UserProfile.html"><i class="bi bi-person"></i> Profile</a></li>
+                                <li><a class="dropdown-item text-danger" id="logout-dropdown" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Filter Bar -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label" data-i18n="type">Type</label>
+                                <select class="form-select" id="transaction-type-filter">
+                                    <option value="all">All</option>
+                                    <option value="income">Income</option>
+                                    <option value="expense">Expense</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label" data-i18n="status">Status</label>
+                                <select class="form-select" id="transaction-status-filter">
+                                    <option value="all">All</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="submitted">Submitted</option>
+                                    <option value="approved">Approved</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label" data-i18n="date_from">Date From</label>
+                                <input type="date" class="form-control" id="transaction-date-from">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label" data-i18n="date_to">Date To</label>
+                                <input type="date" class="form-control" id="transaction-date-to">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="d-flex gap-2">
+                                    <input type="text" class="form-control" id="transaction-search" placeholder="Search transactions...">
+                                    <button class="btn btn-primary" id="apply-filters-btn">Apply Filters</button>
+                                    <button class="btn btn-outline-secondary" id="clear-filters-btn">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body">
+                                <h6 class="card-title text-white-50">Total Income</h6>
+                                <h3 class="card-text" id="trans-total-income">ETB 0.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h6 class="card-title text-white-50">Total Expenses</h6>
+                                <h3 class="card-text" id="trans-total-expenses">ETB 0.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h6 class="card-title text-white-50">Net Balance</h6>
+                                <h3 class="card-text" id="trans-net-balance">ETB 0.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-info text-white">
+                            <div class="card-body">
+                                <h6 class="card-title text-white-50">Total Records</h6>
+                                <h3 class="card-text" id="trans-total-count">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Table -->
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0" id="transactions-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactions-table-body">
+                                    <tr>
+                                        <td colspan="8" class="text-center text-muted py-4">No records found.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <span id="trans-pagination-info">Showing 0 records</span>
+                        <nav>
+                            <ul class="pagination pagination-sm mb-0" id="trans-pagination">
+                                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Modal -->
+    <div class="modal fade" id="transaction-view-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Transaction Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="transaction-view-content">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel d-none" id="notification-panel">
+        <div class="notification-header">
+            <h6>Notifications</h6>
+            <button class="btn btn-sm btn-link" id="mark-all-read">Mark all read</button>
+        </div>
+        <div class="notification-list" id="notification-list">
+            <div class="text-center text-muted p-3">No notifications</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="i18n.js"></script>
+    <script src="auth.js"></script>
+    <script src="permissions.js"></script>
+    <script src="utils.js"></script>
+    <script src="notifications.js"></script>
+    <script src="transactions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

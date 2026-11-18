@@ -1,0 +1,478 @@
+/* ============================================================
+   SELAM BERTU TESFA — UX Polish (animations, fonts, motion)
+   Does not change layout structure or features — polish only.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+    --font-family: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', 'DM Sans', system-ui, sans-serif;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-speed: 0.28s;
+    --transition-fast: 0.18s;
+    --transition-slow: 0.45s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
+    line-height: 1.55;
+}
+
+h1, h2, h3, h4, h5, h6,
+.top-nav-title,
+.auth-title,
+.sidebar-header span,
+.card-title,
+.modal-title {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 600;
+}
+
+/* ---------- Page enter ---------- */
+.app-wrapper,
+.auth-container {
+    animation: sbtFadeIn var(--transition-slow) var(--ease-out) both;
+}
+
+.main-content {
+    animation: sbtRise 0.5s var(--ease-out) both;
+}
+
+@keyframes sbtFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes sbtRise {
+    from { opacity: 0; /* transform disabled */ transform: translateY(10px); }
+    to { opacity: 1; /* transform disabled */ transform: translateY(0); }
+}
+
+@keyframes sbtSlideInLeft {
+    from { opacity: 0; /* transform disabled */ transform: translateX(-12px); }
+    to { opacity: 1; /* transform disabled */ transform: translateX(0); }
+}
+
+@keyframes sbtPop {
+    0% { /* transform disabled */ transform: scale(0.96); opacity: 0; }
+    100% { /* transform disabled */ transform: scale(1); opacity: 1; }
+}
+
+@keyframes sbtShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes sbtPulseSoft {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(var(--brand-magenta-rgb), 0.25); }
+    50% { box-shadow: 0 0 0 8px rgba(var(--brand-magenta-rgb), 0); }
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    transition: width var(--transition-speed) var(--ease-out),
+                transform var(--transition-speed) var(--ease-out),
+                box-shadow var(--transition-speed) ease;
+}
+
+.sidebar .nav-item a,
+.sidebar .nav-link {
+    transition: background var(--transition-fast) ease,
+                color var(--transition-fast) ease,
+                padding-left var(--transition-fast) var(--ease-out),
+                transform var(--transition-fast) var(--ease-out);
+    border-radius: 10px;
+    position: relative;
+}
+
+.sidebar .nav-item a:hover,
+.sidebar .nav-link:hover {
+    /* transform disabled */ transform: translateX(3px);
+}
+
+.sidebar .nav-item.active > a,
+.sidebar .nav-item a.active {
+    box-shadow: inset 3px 0 0 var(--brand-gold);
+}
+
+.sidebar .nav-item a i {
+    transition: transform var(--transition-fast) var(--ease-spring);
+}
+
+.sidebar .nav-item a:hover i {
+    /* transform disabled */ transform: scale(1.12);
+}
+
+/* ---------- Top nav ---------- */
+.top-nav {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: box-shadow var(--transition-speed) ease, background var(--transition-speed) ease;
+}
+
+/* ---------- Cards ---------- */
+.card,
+.stat-card,
+.kpi-card,
+.auth-card {
+    transition: transform var(--transition-speed) var(--ease-out),
+                box-shadow var(--transition-speed) var(--ease-out),
+                border-color var(--transition-speed) ease;
+    will-change: transform;
+}
+
+.card:hover,
+.stat-card:hover,
+.kpi-card:hover {
+    /* transform disabled */ transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.stat-card,
+.kpi-card {
+    animation: sbtPop 0.45s var(--ease-out) both;
+}
+
+.stat-card:nth-child(1), .kpi-card:nth-child(1) { animation-delay: 0.04s; }
+.stat-card:nth-child(2), .kpi-card:nth-child(2) { animation-delay: 0.08s; }
+.stat-card:nth-child(3), .kpi-card:nth-child(3) { animation-delay: 0.12s; }
+.stat-card:nth-child(4), .kpi-card:nth-child(4) { animation-delay: 0.16s; }
+.stat-card:nth-child(5), .kpi-card:nth-child(5) { animation-delay: 0.2s; }
+
+/* ---------- Buttons ---------- */
+.btn {
+    font-family: var(--font-family);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform var(--transition-fast) var(--ease-out),
+                box-shadow var(--transition-fast) ease,
+                background-color var(--transition-fast) ease,
+                border-color var(--transition-fast) ease,
+                color var(--transition-fast) ease,
+                filter var(--transition-fast) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover:not(:disabled) {
+    /* transform disabled */ transform: translateY(-1px);
+    filter: brightness(1.03);
+}
+
+.btn:active:not(:disabled) {
+    /* transform disabled */ transform: translateY(0) scale(0.98);
+}
+
+.btn-primary {
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+    box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.35);
+}
+
+.btn-success:hover:not(:disabled) {
+    box-shadow: 0 4px 14px rgba(var(--success-rgb), 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+    box-shadow: 0 4px 14px rgba(var(--danger-rgb), 0.28);
+}
+
+/* Soft ripple using pseudo */
+.btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.35) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.btn:active::after {
+    opacity: 1;
+    transition: opacity 0.1s ease;
+}
+
+/* ---------- Forms ---------- */
+.form-control,
+.form-select {
+    transition: border-color var(--transition-fast) ease,
+                box-shadow var(--transition-fast) ease,
+                background-color var(--transition-fast) ease,
+                transform var(--transition-fast) ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    /* transform disabled */ transform: translateY(-1px);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-rgb), 0.18),
+                0 4px 12px rgba(var(--primary-rgb), 0.08);
+}
+
+.form-label {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: color var(--transition-fast) ease;
+}
+
+/* ---------- Tables ---------- */
+.table {
+    font-size: 0.925rem;
+}
+
+.table thead th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-/* transform disabled */ transform: none;
+    font-size: 0.8rem;
+}
+
+.table tbody tr {
+    transition: background-color var(--transition-fast) ease,
+                transform var(--transition-fast) ease,
+                box-shadow var(--transition-fast) ease;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(var(--primary-rgb), 0.04);
+    box-shadow: inset 3px 0 0 var(--brand-gold);
+}
+
+.table tbody tr td .btn {
+    transition: transform var(--transition-fast) var(--ease-spring), opacity var(--transition-fast) ease;
+}
+
+.table tbody tr:hover td .btn {
+    /* transform disabled */ transform: scale(1.05);
+}
+
+/* ---------- Modals ---------- */
+.modal.fade .modal-dialog {
+    transition: transform 0.35s var(--ease-out), opacity 0.35s var(--ease-out);
+    /* transform disabled */ transform: translateY(16px) scale(0.98);
+}
+
+.modal.show .modal-dialog {
+    /* transform disabled */ transform: translateY(0) scale(1);
+}
+
+.modal-content {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(10, 31, 51, 0.22);
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ---------- Badges & status ---------- */
+.badge {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: transform var(--transition-fast) var(--ease-spring);
+}
+
+.badge:hover {
+    /* transform disabled */ transform: scale(1.06);
+}
+
+/* ---------- Alerts / toasts ---------- */
+.alert {
+    animation: sbtRise 0.35s var(--ease-out) both;
+    border-radius: 12px;
+}
+
+/* App message / toast containers if present */
+#app-message-container,
+.toast-container,
+.app-toast {
+    animation: sbtSlideInLeft 0.35s var(--ease-out) both;
+}
+
+/* ---------- Auth / login ---------- */
+.auth-card {
+    animation: sbtPop 0.5s var(--ease-out) both;
+    transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.auth-card:hover {
+    /* transform disabled */ transform: none; /* keep login stable */
+    box-shadow: 0 16px 48px rgba(10, 31, 51, 0.14);
+}
+
+.auth-logo {
+    transition: transform 0.5s var(--ease-spring);
+}
+
+.auth-logo:hover {
+    /* transform disabled */ transform: scale(1.05) rotate(-2deg);
+}
+
+.lang-btn {
+    transition: all var(--transition-fast) var(--ease-out) !important;
+}
+
+.lang-btn:hover {
+    /* transform disabled */ transform: translateY(-2px);
+}
+
+/* ---------- Progress bars ---------- */
+.progress {
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.progress-bar {
+    transition: width 0.8s var(--ease-out) !important;
+}
+
+/* ---------- Dropdowns ---------- */
+.dropdown-menu {
+    animation: sbtPop 0.22s var(--ease-out) both;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.dropdown-item {
+    transition: background var(--transition-fast) ease, padding-left var(--transition-fast) ease;
+    border-radius: 8px;
+    margin: 2px 6px;
+    width: auto;
+}
+
+.dropdown-item:hover {
+    padding-left: 1.1rem;
+}
+
+/* ---------- Charts / report area ---------- */
+#report-content,
+.chart-container,
+canvas {
+    animation: sbtFadeIn 0.5s var(--ease-out) both;
+}
+
+/* ---------- Scrollbar (webkit) ---------- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(var(--primary-rgb), 0.25);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background var(--transition-fast) ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--primary-rgb), 0.45);
+    background-clip: padding-box;
+}
+
+/* ---------- Links ---------- */
+a {
+    transition: color var(--transition-fast) ease, opacity var(--transition-fast) ease;
+}
+
+/* ---------- Interactive icons ---------- */
+.bi {
+    transition: transform var(--transition-fast) var(--ease-spring), color var(--transition-fast) ease;
+}
+
+.btn:hover .bi,
+.nav-item a:hover .bi {
+    /* transform disabled */ transform: scale(1.08);
+}
+
+/* ---------- Skeleton-like loading text ---------- */
+.loading,
+[data-loading="true"] {
+    background: linear-gradient(90deg, #eef2f6 25%, #f8fafc 50%, #eef2f6 75%);
+    background-size: 200% 100%;
+    animation: sbtShimmer 1.4s ease infinite;
+    border-radius: 6px;
+    color: transparent !important;
+}
+
+/* ---------- Notification badge pulse ---------- */
+.notification-badge,
+.badge-notification,
+#notification-count:not(:empty) {
+    animation: sbtPulseSoft 2s ease infinite;
+}
+
+/* ---------- Dark theme compatibility ---------- */
+[data-theme="dark"] .card:hover,
+[data-theme="dark"] .stat-card:hover,
+[data-theme="dark"] .kpi-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--brand-gold-rgb), 0.15);
+}
+
+/* ---------- Reduced motion (accessibility) ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 768px) {
+    .card:hover,
+    .stat-card:hover,
+    .kpi-card:hover {
+        /* transform disabled */ transform: none;
+    }
+
+    .btn:hover:not(:disabled) {
+        /* transform disabled */ transform: none;
+    }
+}
+
+
+/* MOTION STABILITY OVERRIDE — keep original colors */
+* { scroll-behavior: auto !important; }
+.page-content, .card, .btn, .nav-item a {
+  animation: none !important;
+  transform: none !important;
+}
+.btn:hover, .nav-item a:hover { transform: none !important; }

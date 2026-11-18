@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SELAM BERTU TESFA ORGANIZATION</title>
+  <script>
+    (function () {
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      var recovery = hash.indexOf('access_token=') !== -1 ||
+                     hash.indexOf('type=recovery') !== -1 ||
+                     search.indexOf('code=') !== -1 ||
+                     search.indexOf('type=recovery') !== -1;
+      if (recovery) {
+        window.location.replace('reset-password.html' + search + hash);
+      } else {
+        window.location.replace('login.html' + search + hash);
+      }
+    })();
+  </script>
+    <link href="responsive-all.css" rel="stylesheet">
+</head>
+<body>
+  <p>Loading… <a id="go" href="login.html">Continue</a></p>
+  <script>
+    document.getElementById('go').href = 'login.html' + (window.location.search||'') + (window.location.hash||'');
+  </script>
+</body>
+</html>
